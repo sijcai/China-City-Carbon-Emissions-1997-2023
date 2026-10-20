@@ -1,5 +1,4 @@
 % Monte Carlo uncertainty analysis of city-level energy-related CO2 emissions.
-% Input sheets: Emissions, EF, CV_AD, CV_EF; CVs are expressed as fractions.
 % Each run processes one city-year. Cement process emissions are excluded.
 
 
