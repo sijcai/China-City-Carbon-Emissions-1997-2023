@@ -1,6 +1,9 @@
 # City-level CO2 emission inventory: simplified calculation functions
 
+
+# -----------------------------
 # 1. Energy-related emissions
+# -----------------------------
 # Inputs include city energy balance tables, industrial subsector energy consumption and emission factors. City statistics are used where available; otherwise, estimated data are used following the methods described in the article.
 # Statistical yearbook references and access links are provided in Supplementary Table 14; fossil-fuel emission factors are provided in Supplementary Table 16.
 
@@ -52,7 +55,10 @@ calculate_energy_emissions <- function(energy_consumption, transformation_inputs
   combustion_energy * co2_factors
 }
 
+
+# -----------------------------
 # 2. Process-related emissions
+# -----------------------------
 # Inputs are city cement production and the cement process emission factor. Statistical yearbook references and access links are provided in Supplementary Table 14; the factor and its reference are described in the Supplementary Methods.
 # Cement production is in Mt; the factor is in t CO2/t cement, giving emissions in Mt CO2.
 calculate_process_emissions <- function(cement_production_Mt, cement_factor = 0.2906) {
@@ -62,7 +68,10 @@ calculate_process_emissions <- function(cement_production_Mt, cement_factor = 0.
   cement_production_Mt * cement_factor
 }
 
+
+# -----------------------------
 # 3. Combine energy-related and process-related emissions
+# -----------------------------
 # cement_sector identifies the nonmetal mineral products sector in the input matrix.
 assemble_inventory <- function(energy_emissions, process_emissions, cement_sector) {
   stopifnot(cement_sector %in% rownames(energy_emissions))
