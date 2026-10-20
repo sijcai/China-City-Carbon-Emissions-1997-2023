@@ -5,7 +5,10 @@
 # GDP shares: GDP_primary, GDP_secondary, GDP_tertiary
 # Employment: Emp_mining, Emp_manufacturing, Emp_energy, Emp_construction
 
-# -------------------- 1. GDP-share clustering --------------------
+
+# -----------------------------
+#1. GDP-share clustering
+# -----------------------------
 gdp_vars <- c("GDP_primary", "GDP_secondary", "GDP_tertiary")
 set.seed(666)
 km_gdp <- kmeans(
@@ -31,7 +34,10 @@ city_data$city_type[km_gdp$cluster == agriculture_id] <-
 city_data$city_type[km_gdp$cluster == service_id] <-
   "Service-dominated"
 
-# -------------------- 2. Employment-share clustering --------------------
+
+# -----------------------------
+#2. Employment-share clustering
+# -----------------------------
 
 secondary_rows <- which(km_gdp$cluster == secondary_id)
 emp_vars <- c(
